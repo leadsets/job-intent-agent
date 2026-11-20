@@ -1,0 +1,2 @@
+# One company website domain per line. Lines starting with # are ignored.
+example.com
