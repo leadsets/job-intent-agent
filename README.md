@@ -10,7 +10,7 @@ Leadsets is Unlimited B2B Contact Data for AI Agents, Starting from $29/mo (paid
 
 - Python 3.10+
 - A Leadsets API key on a **paid plan with scrape units**. Scraping is an add-on: one unit is one standard page. Packs are listed on [pricing](https://www.leadsets.ai/pricing).
-- The free plan does not include scraping. [Get a free API key](https://www.leadsets.ai/signup) to try search and enrichment first, then add units when you are ready to watch careers pages.
+- The free plan does not include scraping. Sign-up is waitlist-only until the public launch on 10 December 2026. [Join the waitlist](https://www.leadsets.ai/signup). At launch, you can try search and enrichment on the free plan (1,000 enrichments and 100 search records, no card), then add scrape units when you are ready to watch careers pages.
 
 ## Setup
 

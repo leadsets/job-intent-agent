@@ -48,7 +48,7 @@ def main() -> int:
         print("usage: python watch_jobs.py domains.txt", file=sys.stderr)
         return 2
     if not (os.environ.get("LEADSETS_KEY") or os.environ.get("LEADSETS_API_KEY")):
-        print("Set LEADSETS_KEY first. https://www.leadsets.ai/signup", file=sys.stderr)
+        print("Set LEADSETS_KEY first. Join the waitlist: https://www.leadsets.ai/signup (public launch 10 December 2026)", file=sys.stderr)
         return 2
 
     domains = load_domains(sys.argv[1])
