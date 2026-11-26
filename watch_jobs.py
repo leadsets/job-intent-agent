@@ -1,6 +1,7 @@
 """Watch careers pages for new open roles (a hiring intent signal).
 
-Needs a paid Leadsets plan with scrape units. One unit is one standard page.
+Needs a paid Leadsets plan with scrape units: 1 unit per open role returned, every run
+(roles seen before count again), so keep LIMIT and the domain list to what you need.
 Run: export LEADSETS_KEY=ls_live_…   then  python watch_jobs.py domains.txt
 
 A posting is a signal, not a purchase order. Pair new roles with search_people
@@ -17,6 +18,8 @@ from pathlib import Path
 from leadsets import Leadsets, PermissionDeniedError, ScrapeUnitsExhaustedError
 
 STATE_PATH = Path("jobs_state.json")
+# Most roles to pull per domain each run: 1 scrape unit per role returned.
+LIMIT = int(os.environ.get("LEADSETS_JOBS_LIMIT", "25"))
 
 
 def load_domains(path: str) -> list[str]:
@@ -65,7 +68,7 @@ def main() -> int:
     new_roles = []
     for domain in domains:
         try:
-            res = ls.scrape.jobs(domain=domain, max_pages=3)
+            res = ls.scrape.jobs(domain=domain, limit=LIMIT, max_pages=3)
         except PermissionDeniedError as e:
             print("Scraping needs a paid plan with units:", e.upgrade_url)
             return 3
